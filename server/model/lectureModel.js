@@ -1,21 +1,20 @@
 const mongoose = require('mongoose');
 
-var schemaStudent = new mongoose.Schema({
+var schemaLecture = new mongoose.Schema({
 
-    name : {
+    lecture : {
         type : String,
         required: true
     },
 
-    studentID : {
+    professorName : {
         type : String,
         required : true
     },
 
-    email : {
+    lectureRoom : {
         type : String,
         required: true,
-        unique : true
     },
 
     phoneNumber : {
@@ -23,14 +22,13 @@ var schemaStudent = new mongoose.Schema({
         required: true,
     },
 
-    lectures : {
+    time : {
         type : String,
         required: true
     }
 })
 
 
+const Lecturedb = mongoose.model('lecturedb', schemaLecture);
 
-const Userdb = mongoose.model('studentdb', schemaStudent);
-
-module.exports = Userdb;
+module.exports = Lecturedb;

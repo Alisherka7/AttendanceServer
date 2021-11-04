@@ -1,5 +1,6 @@
-const Userdb = require('../model/model');
+const Lecturedb = require('../model/lectureModel');
 
+// Lectures Db
 // create and save new student
 exports.create = (req, res)=>{
     //vallidate request
@@ -9,19 +10,19 @@ exports.create = (req, res)=>{
     }
 
     // new student
-    const user = new Userdb({
-        name : req.body.name,
-        studentID : req.body.studentID,
+    const lectureData = new Lecturedb({
+        lecture : req.body.lecture,
+        professorName : req.body.professorName,
+        lectureRoom : req.body.lectureRoom,
         phoneNumber : req.body.phoneNumber,
-        email : req.body.email,
-        lectures : req.body.lectures
+        time : req.body.time
     })
 
     // save student in the database
-    user
-        .save(user)
+    lecture
+        .save(lectureData)
         .then(data=>{
-            res.redirect('/add-user')
+            res.redirect('/add-lecture')
         })
         .catch(err=>{
             res.status(500).send({
@@ -36,7 +37,7 @@ exports.find = (req, res) => {
 
     if(req.query.id){
         const id = req.query.id;
-        Userdb.findById(id)
+        Lecturedb.findById(id)
             .then(data=>{
                 if(!data){
                     res.status(404).send({message : "Not found user with id:" + id})
@@ -49,7 +50,7 @@ exports.find = (req, res) => {
             })
 
     }else{
-        Userdb.find()
+        Lecturedb.find()
             .then(user=>{
                 res.send(user)
             })
@@ -67,7 +68,7 @@ exports.update = (req, res)=>{
             .send({message : "Data to update can not be empty"})
     }
     const id = req.params.id;
-    Userdb.findByIdAndUpdate(id, req.body, {useFindAndModify:false})
+    Lecturedb.findByIdAndUpdate(id, req.body, {useFindAndModify:false})
         .then(data=>{
             if(!data){
                 res.statud(404).send({ message : "cannot update user with " + id + "maybe user not found"})
@@ -84,7 +85,7 @@ exports.update = (req, res)=>{
 exports.delete = (req, res)=>{
     const id = req.params.id;
 
-    Userdb.findByIdAndDelete(id)
+    Lecturedb.findByIdAndDelete(id)
         .then(data=>{
             if(!data){
                 res.status(404).send({message:'Cannot Delete with id ' + id + "Maybe id is wrong"})

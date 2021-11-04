@@ -29,6 +29,34 @@
                 </tbody>
             </table>
         </form>
+
+
+        <!-- Add Lectures -->
+        <div class="box-nav d-flex-justify-between">
+            <a href="/add-lecture" class="border-shadow">
+                <span class="text-gradient">Add Lecture <i class="fas fa-book-open"></i></span>
+            </a>
+        </div>
+
+        <!-- form handling-->
+        <form action="/" method="POST">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Lecture</th>
+                        <th>Professor Name</th>
+                        <th>Lecture Room</th>
+                        <th>Phone Number</th>
+                        <th>Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%- include('include/_lectureShow')%>
+                </tbody>
+            </table>
+        </form>
         
     </div>
 </main>

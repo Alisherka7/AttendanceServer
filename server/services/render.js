@@ -11,11 +11,23 @@ exports.homeRoutes = (req, res) => {
         .catch(err =>{
             res.send(err);
         })
-    
+    // Make a get request to /api/lectures
+    axios.get('http://localhost:3040/api/lectures')
+        .then(function(response){
+            res.render('index',{ lectures : response.data});
+        })
+        .catch(err =>{
+            res.send(err);
+        })
 }
+
 
 exports.add_user = (req, res) => {
     res.render('add_user');
+}
+
+exports.add_lecture = (req, res) => {
+    res.render('add_lecture');
 }
 
 exports.update_user = (req, res) => {
@@ -27,3 +39,14 @@ exports.update_user = (req, res) => {
             res.send(err);
         })
 }
+
+exports.update_lecture = (req, res) => {
+    axios.get('http://localhost:3040/api/lectures',{ params:{id : req.query.id}})
+        .then(function(lecturedata){
+            res.render("update_lecture", { lecture : lecturedata.data})
+        })
+        .catch(err =>{
+            res.send(err);
+        })
+}
+
