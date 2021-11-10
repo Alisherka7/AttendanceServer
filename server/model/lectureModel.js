@@ -29,6 +29,6 @@ var schemaLecture = new mongoose.Schema({
 })
 
 
-const Lecturedb = mongoose.model('lecturedb', schemaLecture);
+const Lecturedb = mongoose.model('lecturesdb', schemaLecture);
 
 module.exports = Lecturedb;

@@ -151,11 +151,13 @@ table{
 
 
 #update_user .form-group,
+#update_lecture .form-group,
 #add_user .form-group{
     margin: .4em 0;
 }
 
 #update_user .form-group input[type="text"],
+#update_lecture .form-group input[type="text"],
 #add_user .form-group input[type="text"]{
     width: 100%;
     padding: .6em 1em;
@@ -166,6 +168,7 @@ table{
 }
 
 #update_user .form-group.radio,
+#update_lecture .form-group.radio,
 #add_user .form-group.radio{
     margin: 1em 2em;
 }
@@ -209,6 +212,7 @@ table{
 }
 
 #update_user .form-group .btn,
+#update_lecture .form-group .btn,
 #add_user .form-group .btn{
     width: 100%;
     padding: .9em 1em;

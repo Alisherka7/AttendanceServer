@@ -10,7 +10,7 @@ exports.create = (req, res)=>{
     }
 
     // new student
-    const lectureData = new Lecturedb({
+    const lecture = new Lecturedb({
         lecture : req.body.lecture,
         professorName : req.body.professorName,
         lectureRoom : req.body.lectureRoom,
@@ -20,7 +20,7 @@ exports.create = (req, res)=>{
 
     // save student in the database
     lecture
-        .save(lectureData)
+        .save(lecture)
         .then(data=>{
             res.redirect('/add-lecture')
         })

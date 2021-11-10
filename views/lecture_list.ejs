@@ -1,43 +1,44 @@
 <!-- include header -->
-    <%- include('include/_header')%>
+<%- include('include/_header')%>
 <!-- /include header -->
 <!-- Main Site -->
 <main id="site-main">
     <div class="container">
-        <div class="box-nav d-flex-justify-between">
-            <a href="/add-user" class="border-shadow">
-                <span class="text-gradient">New Student. <i class="fas fa-user"></i></span>
-            </a>
-        </div>
 
+        
+        <!-- Add Lectures -->
+        <div class="box-nav d-flex-justify-between">
+            <div class="filter">
+                <a href="/"><i class="fas fa-angle-double-left"></i> 학생 수정</a>
+            </div>
+        </div>
+       
         <!-- form handling-->
         <form action="/" method="POST">
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
                         <th>ID</th>
-                        <th>StudentID</th>
-                        <th>Name</th>
-                        <th>@Email</th>
+                        <th>Lecture</th>
+                        <th>Professor Name</th>
+                        <th>Lecture Room</th>
                         <th>Phone Number</th>
-                        <th>Lectures</th>
+                        <th>Time</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <%- include('include/_show')%>
+                    <%- include('include/_lectureShow')%>
                 </tbody>
             </table>
         </form>
 
-
-        <!-- Lectures -->
         <div class="box-nav d-flex-justify-between">
-            <a href="/lecture-list" class="border-shadow">
-                <span class="text-gradient">강의 <i class="fas fa-book-open"></i></span>
+            <a href="/add-lecture" class="border-shadow">
+                <span class="text-gradient">강의 추가 <i class="fas fa-book-open"></i></span>
             </a>
         </div>
-    
+        
     </div>
 </main>
 <!-- /Main Site -->

@@ -11,14 +11,7 @@ exports.homeRoutes = (req, res) => {
         .catch(err =>{
             res.send(err);
         })
-    // Make a get request to /api/lectures
-    axios.get('http://localhost:3040/api/lectures')
-        .then(function(response){
-            res.render('index',{ lectures : response.data});
-        })
-        .catch(err =>{
-            res.send(err);
-        })
+    
 }
 
 
@@ -28,6 +21,17 @@ exports.add_user = (req, res) => {
 
 exports.add_lecture = (req, res) => {
     res.render('add_lecture');
+}
+
+exports.lecture_list = (req, res) => {
+    // Make a get request to /api/lectures
+    axios.get('http://localhost:3040/api/lectures')
+        .then(function(response){
+            res.render('lecture_list',{ lectures : response.data});
+        })
+        .catch(err =>{
+            res.send(err);
+        })
 }
 
 exports.update_user = (req, res) => {

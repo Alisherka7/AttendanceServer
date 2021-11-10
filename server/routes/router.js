@@ -19,6 +19,7 @@ route.get('/',services.homeRoutes);
 
 route.get('/add-user', services.add_user);
 route.get('/add-lecture', services.add_lecture);
+route.get('/lecture-list', services.lecture_list);
 /**
  * @description update user
  * @method GET /update-user
