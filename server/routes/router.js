@@ -9,8 +9,7 @@ const controllerLecture = require('../controller/controllerLeture');
  * @method GET /
  */
 
-route.get('/',services.homeRoutes);
-
+route.get('/', services.homeRoutes);
 
 /**
  * @description add user
@@ -28,6 +27,7 @@ route.get('/lecture-list', services.lecture_list);
 route.get('/update-user', services.update_user);
 
 route.get('/update-lecture', services.update_lecture);
+
 // API student
 route.post('/api/users', controller.create);
 route.get('/api/users', controller.find);
@@ -40,4 +40,4 @@ route.get('/api/lectures', controllerLecture.find);
 route.put('/api/lectures/:id', controllerLecture.update);
 route.delete('/api/lectures/:id', controllerLecture.delete);
 
-module.exports = route
+module.exports = route;
