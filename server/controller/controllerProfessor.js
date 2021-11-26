@@ -1,6 +1,6 @@
-const Lecturedb = require('../model/lectureModel');
+const { response } = require('express');
+const Professordb = require('../model/professorModel');
 
-// Lectures Db
 // create and save new student
 exports.create = (req, res) => {
   //vallidate request
@@ -10,22 +10,20 @@ exports.create = (req, res) => {
   }
 
   // new student
-  const lecture = new Lecturedb({
-    lecture: req.body.lecture,
-    professorName: req.body.professorName,
-    lectureRoom: req.body.lectureRoom,
+  const professor = new Professordb({
+    name: req.body.name,
+    professorID: req.body.professorID,
+    password: req.body.password,
     phoneNumber: req.body.phoneNumber,
-    firstTime: req.body.firstTime,
-    secondTime: req.body.secondTime,
-    firstAttendance: req.body.firstAttendance,
-    secondAttendance: req.body.secondAttendance
+    email: req.body.email,
+    lecture: req.body.lecture
   });
 
   // save student in the database
-  lecture
-    .save(lecture)
+  professor
+    .save(professor)
     .then((data) => {
-      res.redirect('/add-lecture');
+      res.redirect('/add-professor');
     })
     .catch((err) => {
       res.status(500).send({
@@ -35,11 +33,11 @@ exports.create = (req, res) => {
     });
 };
 
-// retrive and return all users/ retrive and raeturn a single student
+// retrive and return all users/ retrive and return a single student
 exports.find = (req, res) => {
   if (req.query.id) {
     const id = req.query.id;
-    Lecturedb.findById(id)
+    Profesordb.findById(id)
       .then((data) => {
         if (!data) {
           res.status(404).send({ message: 'Not found user with id:' + id });
@@ -51,7 +49,7 @@ exports.find = (req, res) => {
         res.status(500).send({ message: 'Error retrieving user with id' + id });
       });
   } else {
-    Lecturedb.find()
+    Professordb.find()
       .then((user) => {
         res.send(user);
       })
@@ -61,13 +59,40 @@ exports.find = (req, res) => {
   }
 };
 
+// professor Login
+exports.loginProfessor = (req, res) => {
+  var post_data = req.body;
+  var professorID = post_data.professorID;
+  var password = post_data.password;
+  Professordb.find({ professorID: professorID }).count(function (err, number) {
+    if (number == 0) {
+      res.json('로그인 다시 확인하세요!');
+      console.log('로그인 다시 확인하세요!');
+    } else {
+      // insert data
+      Professordb.findOne(
+        { professorID: professorID },
+        function (err, professor) {
+          if (password == professor.password) {
+            res.json(professor);
+            console.log('Login succuess');
+          } else {
+            res.json('비밀번호 다시 확인하세요');
+            console.log('비밀번호 다시 확인하세요');
+          }
+        }
+      );
+    }
+  });
+};
+
 //update a new idetified student by student id
 exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({ message: 'Data to update can not be empty' });
   }
   const id = req.params.id;
-  Lecturedb.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Professordb.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then((data) => {
       if (!data) {
         res.statud(404).send({
@@ -82,11 +107,11 @@ exports.update = (req, res) => {
     });
 };
 
-// Delete a student specified studentID in the request
+// Delete a professor specified professorID in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Lecturedb.findByIdAndDelete(id)
+  Professordb.findByIdAndDelete(id)
     .then((data) => {
       if (!data) {
         res.status(404).send({
@@ -103,4 +128,10 @@ exports.delete = (req, res) => {
         message: 'Could not delete User with id =' + id
       });
     });
+};
+
+// find all students
+exports.findAllStudents = (req, res) => {
+  const idProfessor = req.params.idProfessor;
+  const idLecture = req.params.idLecture;
 };

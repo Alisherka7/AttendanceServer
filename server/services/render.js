@@ -1,5 +1,4 @@
 const axios = require('axios');
-
 exports.homeRoutes = (req, res) => {
   // Make a get request to /api/users
   axios
@@ -24,7 +23,16 @@ exports.add_user = (req, res) => {
 };
 
 exports.add_lecture = (req, res) => {
-  res.render('add_lecture');
+  axios
+    .get('http://localhost:3040/api/professors')
+    .then(function (response) {
+      res.render('add_lecture', {
+        professors: response.data
+      });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
 };
 
 exports.lecture_list = (req, res) => {
@@ -55,6 +63,46 @@ exports.update_lecture = (req, res) => {
     .get('http://localhost:3040/api/lectures', { params: { id: req.query.id } })
     .then(function (lecturedata) {
       res.render('update_lecture', { lecture: lecturedata.data });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};
+
+// --------professor
+
+exports.add_professor = (req, res) => {
+  axios
+    .get('http://localhost:3040/api/lectures')
+    .then(function (response) {
+      res.render('add_professor', { lectures: response.data });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};
+
+// update professor acc
+exports.update_professor = (req, res) => {
+  axios
+    .get('http://localhost:3040/api/professors', {
+      params: { id: req.query.id }
+    })
+    .then(function (professordata) {
+      res.render('update_professor', { professor: professordata.data });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};
+
+// professor List
+exports.professor_list = (req, res) => {
+  // Make a get request to /api/lectures
+  axios
+    .get('http://localhost:3040/api/professors')
+    .then(function (response) {
+      res.render('professor_list', { professors: response.data });
     })
     .catch((err) => {
       res.send(err);

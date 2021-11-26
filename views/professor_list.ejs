@@ -9,7 +9,7 @@
         <!-- Add Lectures -->
         <div class="box-nav d-flex-justify-between">
             <div class="filter">
-                <a href="/"><i class="fas fa-angle-double-left"></i> 학생 수정</a>
+                <a href="/"><i class="fas fa-angle-double-left"></i> 교수 계정</a>
             </div>
         </div>
        
@@ -19,24 +19,24 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>ID</th>
-                        <th>Lecture</th>
-                        <th>Professor Name</th>
-                        <th>Lecture Room</th>
+                        <th>professorID</th>
+                        <th>password</th>
+                        <th>Name</th>
+                        <th>@Email</th>
                         <th>Phone Number</th>
-                        <th>First Time</th>
-                        <th>Second Time</th>
+                        <th>Lecture</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <%- include('include/_lectureShow')%>
+                    <%- include('include/_showProfessor')%>
                 </tbody>
             </table>
         </form>
 
         <div class="box-nav d-flex-justify-between">
-            <a href="/add-lecture" class="border-shadow">
-                <span class="text-gradient">강의 추가 <i class="fas fa-book-open"></i></span>
+            <a href="/add-professor" class="border-shadow">
+                <span class="text-gradient">계정 등록하기 <i class="fas fa-book-open"></i></span>
             </a>
         </div>
         

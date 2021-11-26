@@ -1,0 +1,19 @@
+<% for(var i = 0; i<professors.length; i++){ %>
+    <tr>
+        <td><%= i+1 %></td>
+        <td><%= professors[i].professorID %></td>
+        <td class="hidetext"> <%= professors[i].password %> </td>
+        <td><%= professors[i].name %></td>
+        <td><%= professors[i].email %></td>
+        <td><%= professors[i].phoneNumber %></td>
+        <td><%= professors[i].lectures %></td>
+        <td>
+            <a href="/update-professor?id=<%= professors[i]._id %>" class="btn border-shadow update">
+                <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+            </a>
+            <a class="btn border-shadow delete" data-id=<%= professors[i]._id %>>
+                <span class="text-gradient"><i class="fas fa-times"></i></span>
+            </a>
+        </td>
+    </tr>
+    <% } %>

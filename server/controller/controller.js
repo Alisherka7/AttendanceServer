@@ -67,11 +67,9 @@ exports.update = (req, res) => {
   Userdb.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then((data) => {
       if (!data) {
-        res
-          .statud(404)
-          .send({
-            message: 'cannot update user with ' + id + 'maybe user not found'
-          });
+        res.statud(404).send({
+          message: 'cannot update user with ' + id + 'maybe user not found'
+        });
       } else {
         res.send(data);
       }
@@ -88,11 +86,9 @@ exports.delete = (req, res) => {
   Userdb.findByIdAndDelete(id)
     .then((data) => {
       if (!data) {
-        res
-          .status(404)
-          .send({
-            message: 'Cannot Delete with id ' + id + 'Maybe id is wrong'
-          });
+        res.status(404).send({
+          message: 'Cannot Delete with id ' + id + 'Maybe id is wrong'
+        });
       } else {
         res.send({
           message: 'User was deleted successfully'
@@ -104,4 +100,28 @@ exports.delete = (req, res) => {
         message: 'Could not delete User with id =' + id
       });
     });
+};
+
+// Student Login
+exports.loginStudent = (req, res) => {
+  var post_data = req.body;
+  var studentID = post_data.studentID;
+  var password = post_data.password;
+  Userdb.find({ studentID: studentID }).count(function (err, number) {
+    if (number == 0) {
+      res.json('로그인 다시 확인하세요!');
+      console.log('로그인 다시 확인하세요!');
+    } else {
+      // insert data
+      Userdb.findOne({ studentID: studentID }, function (err, student) {
+        if (password == student.password) {
+          res.json(student);
+          console.log('Login succuess');
+        } else {
+          res.json('비밀번호 다시 확인하세요');
+          console.log('비밀번호 다시 확인하세요');
+        }
+      });
+    }
+  });
 };

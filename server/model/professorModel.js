@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-var attendance = new Array(15);
+
 var schemaStudent = new mongoose.Schema({
   name: {
     type: String,
     required: true
   },
 
-  studentID: {
+  professorID: {
     type: String,
     required: true
   },
@@ -27,12 +27,12 @@ var schemaStudent = new mongoose.Schema({
     required: true
   },
 
-  lectures: {
-    type: [Array, attendance],
+  lecture: {
+    type: String,
     required: true
   }
 });
 
-const Userdb = mongoose.model('studentOnedb', schemaStudent);
+const Professordb = mongoose.model('professordb', schemaStudent);
 
-module.exports = Userdb;
+module.exports = Professordb;
