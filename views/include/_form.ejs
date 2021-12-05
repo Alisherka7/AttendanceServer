@@ -4,7 +4,7 @@
         <div class="form-group">
             <label for="StudentID" class="text-light">StudentID</label>
             <input type="hidden" name="id" value="">
-            <input type="text" name="studentID" value="" placeholder="201968063">
+            <input type="text" name="studentID" value="">
         </div>
         <div class="form-group">
             <label for="Password" class="text-light">Password</label>
@@ -27,8 +27,8 @@
             <label for="Lectures" class="text-light">Lectures</label>
 
             <% for(var i = 0; i<lectures.length; i++){ %><br>
-                <%= lectures[i].lecture %><input type="checkbox" id="<%= lectures[i]._id %>" name="lectures" 
-                value="{<%= lectures[i]._id %>},{<%= lectures[i].firstAttendance %>},{<%= lectures[i].secondAttendance %>}" placeholder="">
+                <%= lectures[i].lecture %><input type="checkbox" id="<%= lectures[i].lecture %>" name="lectures" 
+                value="<%= lectures[i].lecture %>" >
                 <% } %>
         </div>
 

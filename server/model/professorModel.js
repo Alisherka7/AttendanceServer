@@ -1,5 +1,18 @@
 const mongoose = require('mongoose');
-
+var students = {
+  데이터베이스: {
+    '61a0bdb03539aa423b603350': {
+      이름: '이예준',
+      fAttendance: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      sAttendance: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    '61a0bf065e529a7295b5274a': {
+      이름: '강서준',
+      fAttendance: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      sAttendance: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    }
+  }
+};
 var schemaStudent = new mongoose.Schema({
   name: {
     type: String,
@@ -28,8 +41,9 @@ var schemaStudent = new mongoose.Schema({
   },
 
   lecture: {
-    type: String,
-    required: true
+    type: Array,
+    required: true,
+    default: students
   }
 });
 

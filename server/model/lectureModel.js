@@ -1,48 +1,30 @@
 const mongoose = require('mongoose');
 
-var attendance = new Array(15);
-for (var i = 0; i < attendance.length; i++) {
-  attendance[i] = 0;
-}
-
 var schemaLecture = new mongoose.Schema({
+  lectureID: {
+    type: String,
+    required: true
+  },
   lecture: {
     type: String,
-    required: true
-  },
-
-  professorName: {
-    type: String,
-    required: true
-  },
-
-  lectureRoom: {
-    type: String,
-    required: true
-  },
-
-  phoneNumber: {
-    type: String,
-    required: true
-  },
-
-  firstTime: {
-    type: String,
-    required: true
-  },
-  secondTime: {
-    type: String,
-    required: true
-  },
-  firstAttendance: {
-    type: Array,
     required: true,
-    default: attendance
+    unique: true
   },
-  secondAttendance: {
-    type: Array,
-    required: true,
-    default: attendance
+  lectureTime: {
+    type: Number,
+    required: true
+  },
+  firstLecture: {
+    type: String,
+    required: true
+  },
+  secondLecture: {
+    type: String,
+    required: true
+  },
+  lessonTime: {
+    type: Number,
+    required: true
   }
 });
 

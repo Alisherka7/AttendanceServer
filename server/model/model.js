@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-var attendance = new Array(15);
+
 var schemaStudent = new mongoose.Schema({
   name: {
     type: String,
@@ -28,7 +28,7 @@ var schemaStudent = new mongoose.Schema({
   },
 
   lectures: {
-    type: [Array, attendance],
+    type: Array,
     required: true
   }
 });

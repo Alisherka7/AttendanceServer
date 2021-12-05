@@ -9,7 +9,7 @@ exports.create = (req, res) => {
     return;
   }
 
-  // new student
+  // new professor
   const professor = new Professordb({
     name: req.body.name,
     professorID: req.body.professorID,

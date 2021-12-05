@@ -11,14 +11,12 @@ exports.create = (req, res) => {
 
   // new student
   const lecture = new Lecturedb({
+    lectureID: req.body.lectureID,
     lecture: req.body.lecture,
-    professorName: req.body.professorName,
-    lectureRoom: req.body.lectureRoom,
-    phoneNumber: req.body.phoneNumber,
-    firstTime: req.body.firstTime,
-    secondTime: req.body.secondTime,
-    firstAttendance: req.body.firstAttendance,
-    secondAttendance: req.body.secondAttendance
+    lectureTime: req.body.lectureTime,
+    firstLecture: req.body.firstLecture,
+    secondLecture: req.body.secondLecture,
+    lessonTime: req.body.lessonTime
   });
 
   // save student in the database
@@ -103,4 +101,7 @@ exports.delete = (req, res) => {
         message: 'Could not delete User with id =' + id
       });
     });
+};
+exports.find1 = (req, res) => {
+  console.log('hi');
 };

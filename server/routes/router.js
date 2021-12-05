@@ -5,6 +5,7 @@ const services = require('../services/render');
 const controller = require('../controller/controller');
 const controllerLecture = require('../controller/controllerLeture');
 const controllerProfessor = require('../controller/controllerProfessor');
+const controllerTracking = require('../controller/controllerTracking');
 /**
  * @description /
  * @method GET /
@@ -54,5 +55,13 @@ route.post('/api/lectures', controllerLecture.create);
 route.get('/api/lectures', controllerLecture.find);
 route.put('/api/lectures/:id', controllerLecture.update);
 route.delete('/api/lectures/:id', controllerLecture.delete);
+
+// api Trackign attendance
+// route.post('/api/trackingStudents', controllerTracking.create);
+route.get('/api/tracking', controllerTracking.find);
+route.put('/api/trackingupdate/:id', controllerTracking.update);
+route.get('/api/trackingdata', controllerTracking.trackingdata);
+// route.put('/api/trackingStudents/:id', controllerTracking.update);
+// route.delete('/api/trackingStudents/:id', controllerTracking.delete);
 
 module.exports = route;

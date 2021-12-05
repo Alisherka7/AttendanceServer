@@ -2,11 +2,11 @@
     <tr>
         <td><%= i+1 %></td>
         <td><%= lectures[i].lecture %></td>
-        <td><%= lectures[i].professorName %></td>
-        <td><%= lectures[i].lectureRoom %></td>
-        <td><%= lectures[i].phoneNumber %></td>
-        <td><%= lectures[i].firstTime %></td>
-        <td><%= lectures[i].secondTime %></td>
+        <td><%= lectures[i].lectureID %></td>
+        <td><%= lectures[i].lectureTime %></td>
+        <td><%= lectures[i].firstLecture %></td>
+        <td><%= lectures[i].secondLecture %></td>
+        <td><%= lectures[i].lessonTime %></td>
         <td>
             <a href="/update-lecture?id=<%= lectures[i]._id %>" class="btn border-shadow update">
                 <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>

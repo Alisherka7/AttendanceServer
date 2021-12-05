@@ -25,22 +25,23 @@
                     <input type="text" name="lecture" value="<%= lecture.lecture %>">
                 </div>
                 <div class="form-group">
-                    <label for="ProfessorName" class="text-light">Professor Name</label>
-                    <input type="text" name="professorName" value="<%= lecture.professorName %>">
+                    <label for="LectureID" class="text-light">LectureID</label>
+                    <input type="text" name="lectureID" value="<%= lecture.lectureID %>">
                 </div>
                 <div class="form-group">
-                    <label for="Lecture Room" class="text-light">Lecture Room</label>
-                    <input type="text" name="lectureRoom" value="<%= lecture.lectureRoom %>">
-                </div>
-                <div class="form-group">
-                    <label for="Phone number" class="text-light">Phone Number</label>
-                    <input type="text" name="phoneNumber" value="<%= lecture.phoneNumber %>" placeholder="+821099999999">
+                    <label for="Lecture Time" class="text-light">Lecture Time</label>
+                    <input type="number" name="lectureTime" value="<%= lecture.lectureTime %>">
                 </div>
                 <div class="form-group">
                     <label for="Time" class="text-light">Time</label>
-                    First Lecture: <input type="datetime-local" name="firstTime" value="<%= lecture.firstTime %>" >
-                    Second Lecture: <input type="datetime-local" name="secondTime" value="<%= lecture.secondTime %>" >
+                    First Lecture: <input type="datetime-local" name="firstLecture" value="<%= lecture.firstLecture %>" >
+                    Second Lecture: <input type="datetime-local" name="secondLecture" value="<%= lecture.secondLecture %>" >
                 </div>
+                <div class="form-group">
+                    <label for="lesson Time" class="text-light">Lesson Time</label>
+                    <input type="number" name="lectureTime" value="<%= lecture.lessonTime %>">
+                </div>
+                
 
                 <div class="form-group">
                     <button type="submit" class="btn text-dark update">Save</button>
