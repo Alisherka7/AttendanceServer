@@ -58,6 +58,23 @@ exports.update_user = (req, res) => {
     });
 };
 
+// exports.update_user = (req, res) => {
+//   const userData = 'http://localhost:3040/api/users';
+//   const userLecture = 'http://localhost:3040/api/lectures';
+//   axios
+//     .all([userData, userLecture])
+//     .then(
+//       axios.spread((...allData) => {
+//         const user = allData[0]
+//         const lectures = allData[1]
+//         res.render('update_user', {allData[0],})
+//       })
+//     ))
+//     .catch((err) => {
+//       res.send(err);
+//     });
+// };
+
 exports.update_lecture = (req, res) => {
   axios
     .get('http://localhost:3040/api/lectures', { params: { id: req.query.id } })
@@ -70,7 +87,6 @@ exports.update_lecture = (req, res) => {
 };
 
 // --------professor
-
 exports.add_professor = (req, res) => {
   axios
     .get('http://localhost:3040/api/lectures')
@@ -108,3 +124,16 @@ exports.professor_list = (req, res) => {
       res.send(err);
     });
 };
+
+// tracking students
+// exports.homeRoutes = (req, res) => {
+//   // Make a get request to /api/users
+//   axios
+//     .get('http://localhost:3040/api/lectures')
+//     .then(function (response) {
+//       res.render('index', { users: response.data });
+//     })
+//     .catch((err) => {
+//       res.send(err);
+//     });
+// };
