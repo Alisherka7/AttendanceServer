@@ -10,7 +10,6 @@
   </a>
 
   <h3 align="center">👨‍🎓Student Attendance Project - SERVER (MongoDB, Node Js)</h3>
-<hr>
 
    <p align="center">
     전자출결 시스템
