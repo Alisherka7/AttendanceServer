@@ -9,7 +9,7 @@
     <img src="https://user-images.githubusercontent.com/38793933/145222939-e0ec6900-e98d-4942-aae6-0ccef01faf35.png" alt="Logo">
   </a>
 
-  <h3 align="center">👨‍🎓Student Attendance Project - SERVER (Node Js)</h3>
+  <h3 align="center">👨‍🎓Student Attendance Project - SERVER (MongoDB, Node Js)</h3>
 <hr>
 
    <p align="center">
