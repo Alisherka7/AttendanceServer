@@ -24,3 +24,5 @@
     <a href="https://github.com/Alisherka7/Taking_Attendance_AdminPanel/tree/main">Admin Panel</a>
   </p>
 </p>
+
+<p>Using languages: Javascript, NodeJS, React</p>
